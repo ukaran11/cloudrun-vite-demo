@@ -6,6 +6,7 @@ COPY package*.json ./
 RUN npm ci
 COPY . .
 RUN npm run build
+RUN set -x  # Enable command trace
 
 # Stage 2: Serve the app with nginx
 FROM nginx:stable-alpine
